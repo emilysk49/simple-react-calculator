@@ -33,8 +33,10 @@ export default function Calculadora() {
         } else {
             // se já foi definido operador 
             const result = eval(`${value} ${operation} ${displayValue}`);
-            setDisplayValue(result.toString())
-            setValue(result.toString())
+            const resultStr = String(result);
+            const formatted = resultStr.length > 12 ? Number(result).toPrecision(9) : resultStr;
+            setDisplayValue(formatted.toString());
+            setValue(formatted.toString());
             setOperation(op)
             setClear(true)
         }
@@ -47,6 +49,8 @@ export default function Calculadora() {
 
     const addDigit = (digit) => {
       if (digit === '.' && displayValue.includes('.')) {
+        return
+      } else if (displayValue.length > 15 && !clear) {
         return
       } else if (displayValue === '0' || clear) {
         setDisplayValue(digit)
