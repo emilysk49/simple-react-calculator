@@ -1,3 +1,10 @@
+.calculator-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+
 .calculator {
     height: 320px;
     width: 235px;
@@ -6,5 +13,27 @@
     display: grid;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: 1fr repeat(5, 48px);
+    z-index: 2;
+    padding-right: 5px;
+}
 
+.button-history {
+    position: absolute;
+    right: -35px;
+    top: 5px;
+    width: 30px;
+    height: 60px;
+}
+
+.history-aside {
+    width: 235px;
+    height: 320px;
+    border-radius: 5px;
+    background-color: #003566;
+    color: #fff;
+}
+
+.history-item {
+    font-size: 0.8rem;
+    padding: 4px 0;
 }
